@@ -1,3 +1,6 @@
+
+
+/*
 Options +FollowSymLinks
 RewriteEngine On
 RewriteRule ^score.*$ 									^minionSpecific/getters
@@ -9,3 +12,6 @@ RewriteRule ^placeOrder.*$ 								^merchantSpecific/getters
 RewriteRule ^trackOrder.*$ 								^merchantSpecific/getters
 RewriteRule ^cancelOrder.*$ 							^merchantSpecific/getters
 RewriteRule ^updateOrder.*$ 							^merchantSpecific/getters
+
+
+*/
