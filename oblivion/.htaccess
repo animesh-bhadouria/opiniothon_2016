@@ -1,0 +1,11 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteRule ^score.*$ 									^minionSpecific/getters
+RewriteRule ^updatemaster/ind/generalinfo.*$ 			^updatemaster/getters
+RewriteRule ^updatemaster/ind/deliveryInfo.*$ 			^updatemaster/getters
+RewriteRule ^updatemaster/bulk/generalinfo.*$ 			^updatemaster/getters
+RewriteRule ^updatemaster/bulk/deliveryInfo.*$ 			^updatemaster/getters
+RewriteRule ^placeOrder.*$ 								^merchantSpecific/getters
+RewriteRule ^trackOrder.*$ 								^merchantSpecific/getters
+RewriteRule ^cancelOrder.*$ 							^merchantSpecific/getters
+RewriteRule ^updateOrder.*$ 							^merchantSpecific/getters
