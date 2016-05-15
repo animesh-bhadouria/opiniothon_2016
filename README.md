@@ -73,42 +73,46 @@ As soon as the Oblivion instance comes back online and is stable (for consecutiv
 --------------
 
 **Obvilion EndPoints**
-	/score
-	/updatemaster/ind/generalinfo
-	/updatemaster/ind/deliveryInfo
-	/updatemaster/bulk/generalinfo
-	/updatemaster/bulk/deliveryInfo
-	/placeOrder
-	/trackOrder
-	/cancelOrderll
-	/updateOrder
+
+			/score
+			/updatemaster/ind/generalinfo
+			/updatemaster/ind/deliveryInfo
+			/updatemaster/bulk/generalinfo
+			/updatemaster/bulk/deliveryInfo
+			/placeOrder
+			/trackOrder
+			/cancelOrder
+			/updateOrder
 
 
 **Minion EndPoints**
-	/assign
-	/getdeliveryinfo
-	/getgeneralinfo
+
+			/assign
+			/getdeliveryinfo
+			/getgeneralinfo
 
 
 **Merchant EndPoints**
-	/pushdeliveryinfo
-	/pushgeneralinfo
+
+			/pushdeliveryinfo
+			/pushgeneralinfo
 
 
 **MegaMind EndPoints**
-	/ind/assigntominion
-	/bulk/assigntominions
-	/ind/getminiongeneralinfo
-	/ind/getminiondeliveryinfo
-	/bulk/getminionsgeneralinfo
-	/bulk/getminionsdeliveryinfo
-	/ind/setminiongeneralinfo
-	/bulk/setminionsgeneralinfo
-	/score
-	/placeOrder
-	/trackOrder
-	/updateOrder
-	/cancelOrder
+
+			/ind/assigntominion
+			/bulk/assigntominions
+			/ind/getminiongeneralinfo
+			/ind/getminiondeliveryinfo
+			/bulk/getminionsgeneralinfo
+			/bulk/getminionsdeliveryinfo
+			/ind/setminiongeneralinfo
+			/bulk/setminionsgeneralinfo
+			/score
+			/placeOrder
+			/trackOrder
+			/updateOrder
+			/cancelOrder
  
 
 7. *Tech Stack*

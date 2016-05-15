@@ -26,7 +26,16 @@ if (empty($_POST['delivery_id']) ||
 		$result['acceptance_state'] = 'rejected';
 	}
 }
-return json_encode($result);
+print_r( json_encode($result) );
+
+
+
+$rooturl = dirname( __FILE__,2);
+
+require_once $rooturl . '/common/helpers/fileHelper.php';
+
+appendToAFile("./minion.log", json_encode($result));
+
 
 //Decides whether delivery to $customer_id is possible
 function deliveryFeasible($customer_id) {
