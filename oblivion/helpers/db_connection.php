@@ -32,11 +32,12 @@ function insertQueryToDB($sql_query)
 {
 	$mysql_connection = connectDatabase();
 
-	$retval = mysqli_query($mysql_connection, $sql_query);
-	
-	if(! $retval )
+	if (mysqli_query($mysql_connection, $sql_query)) 
 	{
-	  die('Could not enter data: ' . mysql_error());
+	    echo "New record created successfully";
+	} else 
+	{
+	    echo "Error: " . $sql_query . "<br>" . mysqli_error($mysql_connection);
 	}
 
 	disconnectDatabase($mysql_connection);
@@ -68,7 +69,15 @@ function getMerchantDetails($merchant_id)
 
 
 
-function setMerchantDetails($merchant_name,$merchant_phno,$merchant_addr,$merchant_lat,$merchant_long,$merchant_priority,$merchant_rating,$date)
+function setMerchantDetails(	$merchant_name,
+								$merchant_phno,
+								$merchant_addr,
+								$merchant_lat,
+								$merchant_long,
+								$merchant_priority,
+								$merchant_rating,
+								$date
+							)
 {
 	
 	$sql = "INSERT INTO merchants (merchant_name,merchant_phno,merchant_addr,merchant_lat,merchant_long,merchant_priority,merchant_rating,date_registered) VALUES
@@ -77,6 +86,7 @@ function setMerchantDetails($merchant_name,$merchant_phno,$merchant_addr,$mercha
    
     return insertQueryToDB($sql);
 }
+
 
 
 
@@ -102,7 +112,14 @@ function getCustomerDetails($customer_id)
 
 }
 
-function setCustomerDetails($customer_name,$customer_phno,$customer_addr,$customer_lat,$customer_long,$customer_rating,$date)
+function setCustomerDetails(	$customer_name,
+								$customer_phno,
+								$customer_addr,
+								$customer_lat,
+								$customer_long,
+								$customer_rating,
+								$date
+							)
 {
 
 	$sql = "INSERT INTO customers (customer_name,customer_phno,customer_addr,customer_lat,customer_long,customer_rating,date_registered) VALUES
@@ -138,7 +155,15 @@ function getMinionDetails($minion_id)
 
 }
 
-function setMinionDetails($minion_name,$minion_phno,$minion_addr,$minion_lat,$minion_long,$minion_priority,$minion_rating,$date)
+function setMinionDetails(	$minion_name,
+							$minion_phno,
+							$minion_addr,
+							$minion_lat,
+							$minion_long,
+							$minion_priority,
+							$minion_rating,
+							$date
+						)
 {
 
 	$sql = "INSERT INTO minions (minion_name,minion_phno,minion_addr,minion_lat,minion_long,minion_priority,minion_rating,date_registered) VALUES
@@ -150,7 +175,7 @@ function setMinionDetails($minion_name,$minion_phno,$minion_addr,$minion_lat,$mi
 }
 
 
-function updateMinionLocation($minion_id,$minion_lat,$minion_long)
+function updateMinionLocation($minion_id	,	$minion_lat	,	$minion_long)
 {
 	
 	$sql = "UPDATE minions SET minion_lat = '$minion_lat', minion_long = '$minion_long'
@@ -161,7 +186,7 @@ function updateMinionLocation($minion_id,$minion_lat,$minion_long)
 
 
 
-function updateMinionPriority($minion_id,$minion_priority)
+function updateMinionPriority($minion_id	,	$minion_priority)
 {
 
 	$sql = "UPDATE minions SET minion_priority = '$minion_priority' 
@@ -171,7 +196,7 @@ function updateMinionPriority($minion_id,$minion_priority)
 }
 
 
-function updateMinionRating($minion_id,$minion_rating)
+function updateMinionRating($minion_id	,	$minion_rating)
 {
 
 	$sql = "UPDATE minions SET minion_rating = '$minion_rating'
@@ -202,26 +227,47 @@ function getDeliveryDetails($delivery_id)
 
 }
 
-function setDeliveryDetails($delivery_id,$merchant_id,$customer_id,$minion_id,$status,$time_created,$time_completed,$time_updated)
+function updateDeliveryDetails($delivery_id,$merchant_id,$customer_id,$status,$time_updated)
+{
+	$sql = "UPDATE deliveries SET status = '$status' , merchant_id = '$merchant_id' , customer_id = '$customer_id' , time_updated = '$time_updated'
+			WHERE delivery_id = '$delivery_id'";
+
+    return insertQueryToDB($sql);
+}
+
+
+function setNewDelivery		(	$delivery_id,
+								$merchant_id,
+								$customer_id,
+								$status,
+								$time_created
+							)
 {
 
-	$sql = "INSERT INTO deliveries (delivery_id,merchant_id,customer_id,minion_id,status,time_created,time_completed,time_updated) VALUES
-       ('$delivery_id','$merchant_id','$customer_id','$minion_id','$status','$time_created','$time_completed','$time_updated')";
+	$sql = "INSERT INTO deliveries (delivery_id,merchant_id,customer_id,status,time_created) VALUES
+       ('$delivery_id','$merchant_id','$customer_id','$status','$time_created')";
 
     return insertQueryToDB($sql);
 
 }
 
 
+function updateDeliveryMinionDetails($delivery_id,$minion_id,$status,$time_updated)
+{
+	$sql = "UPDATE deliveries SET minion_id = '$minion_id' ,  status = '$status' ,  time_updated = '$time_updated' 
+			WHERE delivery_id = '$delivery_id'";
+
+    return insertQueryToDB($sql);
+}
 
 
+function updateDeliveryStatusDetails($delivery_id,$status,$time_completed,$time_updated)
+{
+	$sql = "UPDATE deliveries SET status = '$status' , time_completed = '$time_completed' , time_updated = '$time_updated'
+			WHERE delivery_id = '$delivery_id'";
 
-
-
-
-
-
-
+    return insertQueryToDB($sql);
+}
 
 
 
