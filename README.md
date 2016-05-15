@@ -114,6 +114,8 @@ As soon as the Oblivion instance comes back online and is stable (for consecutiv
 7. *Tech Stack*
 --------------
 
-PHP
-MYSQL
-Beanstalkd
+	> PHP
+	> MYSQL
+	> Beanstalkd
+	> Squid proxy
+	> Cron Jobs
