@@ -1,9 +1,9 @@
 <?php
-require_once "../http/helpers/megamindOperations.php";
+require_once "../services/megamindOperations.php";
 
 // $smsBody = file_get_contents('php://input');
 
-$smsBody1 = '{
+$smsBody = '{
 				"minion_id":"2211",
 				"minion_status":"busy",
 				"minion_phno":"9840401776",
@@ -12,7 +12,7 @@ $smsBody1 = '{
 				}';
 
 
-$smsBody = '{
+$smsBody1 = '{
 				"delivery_id":"ee769100506340b7aa39f9f5a0c63d0b",
 				"merchant_id":"2211",
 				"customer_id":"12",
@@ -41,12 +41,10 @@ if (isset($bodyArr["minion_id"])) {
 	$thisFailureTime = shell_exec("grep $minionId minionsSms.log | tail -n1 | cut -d, -f1");
 	$thisFailureTime = str_replace(array("\n","\r"), '', $thisFailureTime);
 
-
-
 	$from_time = strtotime($fifthLastFailureTime);
 	$to_time = strtotime($thisFailureTime);
-
-	if (round(abs($to_time - $from_time)) > 10) {
+echo round(abs($to_time - $from_time));
+	if (round(abs($to_time - $from_time)) < 10 && round(abs($to_time - $from_time)) < 300) {
 		MegamindOperations::switchRoleForMinion($minionId, $smsBody);
 	}
 
@@ -73,7 +71,7 @@ if (isset($bodyArr["minion_id"])) {
 	$to_time = strtotime($thisFailureTime);
     echo round(abs($to_time - $from_time));
 	
-	if (round(abs($to_time - $from_time)) > 10) {
+	if (round(abs($to_time - $from_time)) > 10 && round(abs($to_time - $from_time)) < 300) {
 		MegamindOperations::switchRoleForMerchant($merchantId, $smsBody);
 	}
 }

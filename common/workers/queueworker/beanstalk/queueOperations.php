@@ -34,20 +34,28 @@ class QueueOperations
     public function enqueue($queueMsg)
     {
         $this->pheanstalkObj->useTube($this->queueName)->put($queueMsg);
+        return "Enqueue Operation Successful";
+
     } //end of enqueue function
 
 
     //dequeue function. Pushes out (and delete) the first $numOfQueueMsgs message(s) from the queue
     public function dequeue($numOfQueueMsgs = 1)
-    {
-        while (true) {
-            $job=$this->$pheanstalk->watch($queueName)->ignore('default')->reserve();
+    {  
+        $counter = 1;
+
+        while ($counter <= $numOfQueueMsgs) {
+            $job = $this->pheanstalkObj->watch($this->queueName)->ignore('default')->reserve();
             if($job) {
                 $thisMsg = $job->getdata()."\n";
                 array_push($this->returnArr, $thisMsg);
-                $pheanstalk->delete($job);
+                $this->pheanstalkObj->delete($job);
+                $counter++;
             }
         }
+        return $this->returnArr;
+
+
     } //end of dequeue function
 
 }//end of class
