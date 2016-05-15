@@ -1,0 +1,6 @@
+customer_id,customer_name,customer_phno,customer_addr,customer_lat,customer_long,customer_rating,date_registered
+1,"Raj Vimal Chopra","09742987085","Indiranagar; Bangalore","12.621","79.545","4.9","2016-05-14 02:18:52"
+2,"Animesh Singh","09600968059","Marthahalli; Bangalore","12.628","79.542","5","2016-05-14 02:41:17"
+3,"Arun Krishnan","09900655102","Whitefield; Bangalore","12.625","79.541","5","2016-05-14 03:03:34"
+4,"Vishnu Jayadevan","09500163860","Koramangla; Bangalore","12.624","79.544","5","2016-05-14 03:38:12"
+5","Aman Kumar Singh","09755649545","Railway Platform 1; Bangalore","12.622","79.549","4.9","2016-05-14 04:29:45"

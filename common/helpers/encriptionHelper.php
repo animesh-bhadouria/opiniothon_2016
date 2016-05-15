@@ -10,16 +10,31 @@
 class EncriptionHelper
 {
     
-    public function encript($data, $method='aes128', $pass='1234')
+    public function encript($data, $method='aes128', $pass='2211')
     {
-        return openssl_encrypt($cust , 'aes128' , '1234');
+        return openssl_encrypt($data , $method , $pass);
 
     }
 
 
-    public function decript($data, $method='aes128', $pass='1234')
+    public function decript($data, $method='aes128', $pass='2211')
     {
-        return openssl_decrypt($cust , 'aes128' , '1234');
+        return openssl_decrypt($data , $method , $pass);
 
     }
+
+}
+
+
+/* Uncomment Below lines to test EncriptionHelper
+
+$str = "opiniothon";
+echo "String = $str \n";
+
+$encriptedStr = EncriptionHelper::encript($str);
+echo "On Encryption : ".$encriptedStr."\n";
+
+$decriptedStr = EncriptionHelper::decript($encriptedStr);
+echo "On Decryption : ".$decriptedStr."\n";
+
    
