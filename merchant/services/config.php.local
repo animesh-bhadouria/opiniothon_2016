@@ -6,5 +6,4 @@ $config['megamind_sms_address'] = '172.31.99.15/sms';
 $config['oblivion_sms_address'] = '172.31.98.139/http';
 
 $config['httpStat'] = true;
-
 ?>
