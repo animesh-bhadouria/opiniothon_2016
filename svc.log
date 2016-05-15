@@ -1,1 +1,17 @@
-test
+RewriteEngine On
+RewriteRule ^/updatemaster/ind/generalinfo/ xyz/generalinfo.php
+
+
+
+touch indOperation/setters/setMinionGeneralInfo.php
+touch bulkOperation/setters/setMinionsGeneralInfo.php
+/score
+
+
+
+touch indOperation/assignJobToMinion.php
+touch bulkOperation/assignJobToMinions.php
+touch indOperation/getters/getMinionGeneralInfo.php
+touch indOperation/getters/getMinionDeliveryInfo.php
+touch bulkOperation/getters/getMinionsGeneralInfo.php
+touch bulkOperation/getters/getMinionsDeliveryInfo.php

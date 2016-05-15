@@ -1,0 +1,8 @@
+<?php
+
+define("mysql_HOST", "54.201.205.215");
+define("mysql_USER", "root");
+define("mysql_PASSWORD", "*********");
+define("mysql_DATABASE", "opiniothon");
+
+?>

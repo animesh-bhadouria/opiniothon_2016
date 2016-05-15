@@ -1,0 +1,6 @@
+{
+"require":{
+"pda/pheanstalk":"v3.0.0"
+}
+}
+
