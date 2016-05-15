@@ -28,8 +28,17 @@ if (empty($_POST['delivery_id']) ||
 }
 return json_encode($result);
 
-//Decides whether $customer_id is recognisable
+//Decides whether delivery to $customer_id is possible
 function deliveryFeasible($customer_id) {
+	//Can't deliver if the agent is not free
+	$loc = dirname(__FILE__);
+	$fl = "$loc/min.info";
+	$handle = fopen($fl, 'r');
+	$data = fread($handle,filesize($fl));
+	$info = json_decode($data);
+	if('free' != $info -> minion_status) {
+		return false;
+	}
 	return true;
 }
 

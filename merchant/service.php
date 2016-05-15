@@ -1,4 +1,9 @@
 <?php
+
+$currentLoc = dirname(__FILE__);
+define('APPPATH', "$currentLoc/../");
+require(APPPATH . 'common/helpers/networkHelper.php');
+
 function placeOrder($delivery_id, $customer_id) {
 	$postData = array(
 		'delivery_id'	=> $delivery_id,
@@ -8,18 +13,7 @@ function placeOrder($delivery_id, $customer_id) {
 	);
 
 	$url = '<obvilion_url>/placeOrder';
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, $url);
-	curl_setopt($ch, CURLOPT_POST, 1);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_FAILONERROR, 0);
-	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postData));
-	$httpResult = curl_exec($ch);
-	$error = curl_error($ch);
-	$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-	curl_close($ch);
-	echo $httpCode;
+	NetworkHelper::postit($url, $postData);
 }
 
 function trackOrder($delivery_id, $customer_id) {
@@ -31,18 +25,7 @@ function trackOrder($delivery_id, $customer_id) {
 	);
 
 	$url = '<obvilion_url>/placeOrder';
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, $url);
-	curl_setopt($ch, CURLOPT_POST, 1);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_FAILONERROR, 0);
-	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postData));
-	$httpResult = curl_exec($ch);
-	$error = curl_error($ch);
-	$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-	curl_close($ch);
-	echo $httpCode;
+	NetworkHelper::postit($url, $postData);
 }
 
 function cancelOrder($delivery_id, $customer_id) {
@@ -54,21 +37,10 @@ function cancelOrder($delivery_id, $customer_id) {
 	);
 
 	$url = '<obvilion_url>/placeOrder';
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, $url);
-	curl_setopt($ch, CURLOPT_POST, 1);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_FAILONERROR, 0);
-	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postData));
-	$httpResult = curl_exec($ch);
-	$error = curl_error($ch);
-	$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-	curl_close($ch);
-	echo $httpCode;
+	NetworkHelper::postit($url, $postData);
 }
 
-function updateOrder($delivery_id. $customer_id) {
+function updateOrder($delivery_id, $customer_id) {
 	$postData = array(
 		'delivery_id'	=> $delivery_id,
 		'merchant_id'	=> '2211',
@@ -77,16 +49,5 @@ function updateOrder($delivery_id. $customer_id) {
 	);
 
 	$url = '<obvilion_url>/placeOrder';
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, $url);
-	curl_setopt($ch, CURLOPT_POST, 1);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_FAILONERROR, 0);
-	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postData));
-	$httpResult = curl_exec($ch);
-	$error = curl_error($ch);
-	$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-	curl_close($ch);
-	echo $httpCode;
+	NetworkHelper::postit($url, $postData);
 }
