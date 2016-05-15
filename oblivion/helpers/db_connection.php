@@ -196,6 +196,16 @@ function updateMinionPriority($minion_id	,	$minion_priority)
 }
 
 
+function updateMinionStatus($minion_id	,	$minion_status)
+{
+
+	$sql = "UPDATE minions SET minion_status = '$minion_status' 
+			WHERE minion_id = '$minion_id'";
+
+    return insertQueryToDB($sql);
+}
+
+
 function updateMinionRating($minion_id	,	$minion_rating)
 {
 
