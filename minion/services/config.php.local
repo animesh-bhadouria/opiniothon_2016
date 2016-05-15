@@ -1,0 +1,8 @@
+<?php
+$config['megamind_http_url'] = '127.0.0.1/';
+$config['oblivion_http_url'] = '127.0.0.1/';
+
+$config['megamind_sms_address'] = '127.0.0.1/';
+$config['oblivion_sms_address'] = '127.0.0.1/';
+
+?>
