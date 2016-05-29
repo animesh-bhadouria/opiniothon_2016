@@ -26,10 +26,10 @@ Downtime = no new orders = loss in business =  BAD
 Downtime happens on the rarest of the occasions but when it does due to some reason or the other, it completely halts the business and companies loose money as well as potential customers every second.
 *Some recent examples:*
 - Swiggy servers were down for half a day in November'2015 due an issue with the Airtel's network which in turn lead to a huge loss in revenue and manpower as swiggy drivers were left without work.
-- Last week AWS Singapore service went down due to a faulty fiber optic cable and a lot of small scale startups had to buy new instances and reroute their entire infrastructure just to maintain operability.
+- In April 2016, Singapore Internet Inbound traffic was sufferring due to multiple cuts in fiber optic cable. Dut to which many internet-dependent companies (mostly small scale startups without proper failovers) businesses got heavily affected.
 
-Apart from that, logistics and delivery companies face a lot of issues when migrating to the TIER II and TIER III cities due to improper network infrastructure. 
-With that in mind we tried to implement a decentralized solution for Opinio which would make sure the business is not impacted during the server downtime  and seamless service is delivered throughout India.
+Apart from that, logistics and delivery companies face a lot of issues when expanding in the TIER II and TIER III cities due to improper network infrastructure. 
+With that in mind we tried to implement a decentralized solution for Opinio which would make sure the business is not impacted during the server downtime  and seamless service is delivered.
 
 2. *Solution Approach*
 --------------
